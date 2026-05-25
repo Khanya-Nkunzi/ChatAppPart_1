@@ -14,6 +14,7 @@ nbdist/
 # Complied jar files (keep snapshot jars)
 *.jar
 !*-SNAPSHOT.jar
+
 # System files
 .DS_Store
 Thumbs.db

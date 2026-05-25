@@ -103,7 +103,7 @@ public class MessageTest {
         assertEquals("Press 0 to delete the message.", result);
         
     }
-      // Tes 11
+      // TEST 11
        public void testSentMessage_store() {
            String result = message1.sentMessage(3);
             assertEquals("Message succesfully stored.",result);
