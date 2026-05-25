@@ -1,0 +1,20 @@
+# Maven build output
+target/
+
+# NetBeans project files
+nbproject/private/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+
+# compiled Java class files
+*.class
+
+# Complied jar files (keep snapshot jars)
+*.jar
+!*-SNAPSHOT.jar
+# System files
+.DS_Store
+Thumbs.db
+
