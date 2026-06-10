@@ -174,4 +174,55 @@ public class Message {
     }
     
     // deleting a message and its parallel data using its hash code
+    public static void loadStoredMessages(){
+        
+        //
+        java.io.File file = new java.io.File("messages.json");
+        
+        // if the file doesnot exists handling it smoothly
+        if (!file.exists()){
+            System.out.println("No existing data file found");
+            return;
+        }
+        // Opening messages.json using BufferedReader
+        try (java.io.BufferedReader br = new java.io.BufferedReader(new java.io.FileReader(file))){
+            String line;
+           
+           while ((line = br.readLine()) != null){
+               // passing the line as an json object
+               org.json.JSONObject currentMessage = new org.json.JSONObject(line);
+               
+               // extarting fields matching storeMessages()
+               String msgID = currentMessage.has("messageID")? currentMessage.getString("messageID") : "MSG-UNKNOWN";
+               String recipient = currentMessage.has("recipient")? currentMessage.getString("recipient") : "Unknown";
+               String text =  currentMessage.has("message")? currentMessage.getString("message") : "No text found";
+               
+               // populating the parallel tarcking list
+               messageIDs.add(msgID);
+               recipientList.add(recipient);
+               storedMessages.add(text);
+               
+               // Generating and syncing the hash to keep the data uniformed
+               // manually adding the hash since createMessageHash() relies on global state
+               
+               String lastWord = "";
+               String[] words = text.split(" ");
+               if (words.length > 0);
+               lastWord = words[words.length -1].replaceAll("[^a-zA-Z]", "");
+              
+           
+           String hashValue = msgID.substring(0, 2) + ":" + messageIDs.size() + ":" + lastWord.toUpperCase();
+           messageHashes.add(hashValue);
+           }
+           
+           {
+        }
+        System.out.println("Data file loaded successfully.");
+        
+    }
+    catch (java.io.IOException e){
+    System.err.println("Critical error reading data recovery: " + e.getMessage());
+        
+    }           
+}
 }
