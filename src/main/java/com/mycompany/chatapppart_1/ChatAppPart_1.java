@@ -128,6 +128,11 @@ public class ChatAppPart_1
     System.out.println("Goodbye!");
     running = false;
     break;
+    
+        case 4:
+            displayStoredMessagesSubMenu(input);
+            break;
+            
     // incase the user types another option
     default:
     System.out.println("Invalid option.");
