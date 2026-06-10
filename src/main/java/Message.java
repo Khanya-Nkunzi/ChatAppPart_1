@@ -1,3 +1,5 @@
+package com.mycompany.chatapppart_1;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -117,4 +119,59 @@ public class Message {
    // public String sentMessageID(){
        // return this.messageID;
     //}
+    // method to find the longest message
+    public static String displayLongestMessage(){
+        
+        // initializing a empty string to track the longets message
+        String longest = "";
+        
+        // looping through each message object on storedMessages array list
+        for (String msg : storedMessages){
+            
+            //  checking if the message is longer than the tracking string
+            if (msg.length()> longest.length()){
+                
+                // updating the tracking variable with the longest message
+                longest = msg;
+            }
+        }
+        return longest;
+    }
+    // Searching for a message using its unique Message ID
+    public static String searchByMessageID(String id) {
+        
+        // looping through messageIDs array using an index counter
+        for (int i = 0; i < recipientList.size(); i++){
+            
+            // Checkng if the ID at index i matches the target id parameter
+            if (recipientList.get(i).equals(id)){
+                
+                // match found! return the message text
+                return storedMessages.get(i);
+            }
+        }
+        // if the loop checks every index and finds nothing return string
+        return "Message not found.";
+    }
+    // searching for all messages sent to a specific cell number
+    public static String searchByRecipient(String recipient){
+        
+        // creating a string builder container to collect multiple matching messages
+        StringBuilder results = new StringBuilder();
+        
+        // looping through the recipient tracking structure using an index counter
+        for (int i = 0; i < recipientList.size(); i++){
+            
+            // checking if the recipient at current index matches the target input
+            if (recipientList.get(i).equals(recipient)){
+                
+                // if match found add the corresponding message text to the result container
+                results.append(storedMessages.get(i)).append(" ");
+            }
+        }
+        // returning the accumulated results string
+        return results.toString().trim();
+    }
+    
+    // deleting a message and its parallel data using its hash code
 }
