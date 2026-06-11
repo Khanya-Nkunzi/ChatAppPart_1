@@ -7,7 +7,7 @@ It is a POE project.
 *** User Authentication:** Registration and validation of user login details securely.
 ** Message Handling:** Automated message ID generation, custom message handling logic and payload validation.
 ***Persistent Storage:** Seameless reading and writting of tracking states locally utilizing external data files.
-***Unit Tested:** Built and verified against a robust suite of JUnit test configurations.
+***Unit Tested:** Built and verified against a robust suite of JUnit test configurations. 
 
 ----
 ## How to run the Project
