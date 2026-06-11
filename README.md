@@ -1,6 +1,7 @@
 # ChatApp - Messaging 
 A java based console application featuring persistent, secure user authentication, input validation and automated unit testing 
-** It is a POE projrct for my school
+
+It is a POE project.
 --------
 ## Features
 *** User Authentication:** Registration and validation of user login details securely.
